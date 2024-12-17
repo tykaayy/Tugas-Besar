@@ -32,10 +32,9 @@ const Pelanggan = () => {
             <tr>
               <th>Nama</th>
               <th>Email</th>
-              <th>No E-Wallet</th>
               <th>Alamat</th>
-              <th>Username</th>
-              <th>Password</th>
+              <th>No E-Wallet</th>
+              <th>Jenis Ewallet</th>
 
             </tr>
           </thead>
@@ -44,10 +43,9 @@ const Pelanggan = () => {
               <tr key={item.id}>
                 <td>{item.nama}</td>
                 <td>{item.email}</td>
-                <td>{item.no_ewallet}</td>
                 <td>{item.alamat}</td>
-                <td>{item.username}</td>
-                <td>{item.password}</td>
+                <td>{item.no_ewallet}</td>
+                <td>{item.jenis_ewallet}</td>
 
                 <td>
                   <button style={styles.editButton}>Edit</button>

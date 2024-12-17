@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import logo from "../assets/LOGO.png"; 
 
-const Registrasi = () => {
-  // State untuk mengontrol visibility password
+const Pelanggan = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // State untuk menyimpan data form
+  
   const [formData, setFormData] = useState({
     nama: "",
     email: "",
@@ -17,17 +16,16 @@ const Registrasi = () => {
     confirmPassword: "",
   });
 
-  // State untuk status loading dan error
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Handle perubahan input
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Toggle visibility password
+  
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
@@ -36,23 +34,23 @@ const Registrasi = () => {
     setShowConfirmPassword((prev) => !prev);
   };
 
-  // Handle submit form
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validasi simple sebelum mengirim ke server
+    
     if (formData.password !== formData.confirmPassword) {
       alert("Password dan Konfirmasi Password tidak cocok!");
       return;
     }
 
-    // Set loading state
+  
     setLoading(true);
     setError("");
 
     try {
       // Kirim data ke server menggunakan fetch
-      const response = await fetch("/api/register/", {
+      const response = await fetch("http://localhost:3000/Pelanggan/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,12 +62,13 @@ const Registrasi = () => {
           alamat: formData.alamat,
           username: formData.username,
           password: formData.password,
+          confirmPassword: formData.confirmPassword,
         }),
       });
 
       const data = await response.json();
 
-      // Cek status respons
+     
       if (response.ok) {
         alert("Registrasi berhasil! Silakan login.");
         setFormData({
@@ -196,7 +195,7 @@ const Registrasi = () => {
 
       {/* Sudah memiliki akun */}
       <p style={styles.footerText}>
-        Sudah memiliki Akun? <a href="/login" style={styles.link}>Login</a>
+        Sudah memiliki Akun? <a href="/User" style={styles.link}>Login</a>
       </p>
     </div>
   );
@@ -289,4 +288,4 @@ const styles = {
   },
 };
 
-export default Registrasi;
+export default Pelanggan;

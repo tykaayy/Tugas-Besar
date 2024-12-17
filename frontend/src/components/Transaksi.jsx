@@ -1,172 +1,156 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import profile from "../assets/Group 8834.png";
 
 const styles = {
-  nav: {
-    listStyleType: 'none',
-    padding: 0,
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    minHeight: "100vh",
   },
-  activeLink: {
-    fontSize: '18px',
-    color: '#333',
-    textDecoration: 'none',
-    marginBottom: '15px',
-    display: 'block',
+  sidebar: {
+    width: "220px",
+    backgroundColor: "#fff",
+    padding: "20px",
+    flexShrink: 0,
+    borderRight: "1px solid #ddd",
+  },
+  profileSection: { textAlign: "center", marginBottom: "20px" },
+  profileImage: { width: "80px", borderRadius: "50%", marginBottom: "10px" },
+  navLink: {
+    display: "block",
+    padding: "10px 0",
+    fontWeight: "bold",
+    color: "#333",
+    textDecoration: "none",
+  },
+  activeLink: { fontWeight: "bold", color: "#000" },
+  mainContent: {
+    flexGrow: 1,
+    padding: "30px",
+    backgroundColor: "#f8fdf4",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  card: {
+    backgroundColor: "#fcfcfc",
+    padding: "20px 30px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    width: "100%",
+    maxWidth: "500px",
+  },
+  label: { marginBottom: "5px", fontWeight: "bold", display: "block" },
+  button: {
+    marginTop: "10px",
+    backgroundColor: "#2f8d46",
+    color: "#fff",
+    padding: "10px",
+    width: "100px",
+    borderRadius: "5px",
+    textAlign: "center",
+    border: "none",
+    cursor: "pointer",
   },
   footer: {
-    backgroundColor: '#28A745',
-    color: 'white',
-    textAlign: 'center',
-    padding: '20px',
-    marginTop: '20px',
+    backgroundColor: "#2E7D32",
+    color: "#fff",
+    padding: "10px",
+    textAlign: "center",
+    position: "relative",
+    bottom: 0,
+    width: "100%",
   },
   footerLink: {
-    color: 'white',
-    textDecoration: 'none',
-    margin: '0 10px',
-    fontSize: '16px',
+    color: "#fff",
+    margin: "0 10px",
+    textDecoration: "none",
+  },
+  header: {
+    backgroundColor: "#2E7D32",
+    padding: "10px",
+    textAlign: "center",
   },
 };
 
 const TransactionPage = () => {
   return (
-    <div>
-      {/* Inline CSS */}
-      <style>
-        {`
-          body {
-            margin: 0;
-            padding: 0;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            background-color: #ffffff;
-            color: #333;
-          }
-          .header {
-            background-color: #28A745;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-          }
-          .container {
-            display: flex;
-            min-height: calc(100vh - 200px);
-          }
-          .sidebar {
-            background-color: #ffffff;
-            width: 300px;
-            padding: 30px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            height: 100%;
-            border-radius: 10px;
-          }
-          .sidebar .profile {
-            text-align: center;
-            margin-bottom: 40px;
-          }
-          .sidebar .profile img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-          }
-          .sidebar .profile p {
-            font-weight: bold;
-            color: #28A745;
-          }
-          .main {
-            flex: 1;
-            padding: 40px;
-          }
-          .main .section-header {
-            background-color: #28A745;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-          }
-          .transaction-details {
-            background-color: #28A745;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            color: #ffffff;
-          }
-          .transaction-details p {
-            font-size: 18px;
-            margin: 15px 0;
-          }
-          .transaction-details p span {
-            font-weight: bold;
-          }
-          .transaction-details .status-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-          }
-        `}
-      </style>
-
-      {/* Header */}
-      <header className="header">GoSampah</header>
-
-      {/* Container */}
-      <div className="container">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <div className="profile">
-            <img src="Ellipse 16.png" alt="Profile" />
-            <p>Tyka Nurul Indi</p>
-            <a href="#">Ubah profil</a>
-          </div>
-          <nav>
-            <ul style={styles.nav}>
-              <li><Link to="/dashboard" style={styles.activeLink}>Dashboard</Link></li>
-              <li><Link to="/setoran" style={styles.activeLink}>Setoran</Link></li>
-              <li><Link to="/transaksi" style={styles.activeLink}>Transaksi</Link></li>
-              <li><Link to="/riwayat-transaksi" style={styles.activeLink}>Riwayat Transaksi</Link></li>
-              <li><Link to="/tabungan" style={styles.activeLink}>Tabungan</Link></li>
-              <li><Link to="/teman" style={styles.activeLink}>Teman</Link></li>
-              <li><Link to="/postingan" style={styles.activeLink}>Postingan</Link></li>
-            </ul>
-          </nav>
-        </aside>
-
-        {/* Main Content */}
-        <main className="main">
-          <div className="section-header">Transaksi</div>
-          <div className="transaction-details">
-            <p><span>Nama:</span> Tyka Nurul Indi</p>
-            <p><span>Lokasi:</span> Lokasi 1 (Jl Gunung Muria No. 07 desa Jatirejo)</p>
-            <p><span>Jenis Sampah:</span> Sampah Kardus</p>
-            <p><span>Berat Sampah:</span> 10 Kg</p>
-            <p>
-              <span>Status:</span> 
-              <button className="status-button">Proses</button>
-            </p>
-          </div>
-        </main>
-      </div>
-
-      {/* Footer */}
-      <footer style={styles.footer}>
+    <div style={styles.container}>
+      {/* Sidebar */}
+      <aside style={styles.sidebar}>
+        <div style={styles.profileSection}>
+          <img src={profile} alt="profile" style={styles.profileImage} />
+          <h3>Tyka Nurul Indi</h3>
+          <Link to="/profile" style={{ textDecoration: "none", color: "#2f8d46" }}>
+            Lihat profil
+          </Link>
+        </div>
         <nav>
-          <Link to="/" style={styles.footerLink}>Home</Link>
-          <Link to="/profil" style={styles.footerLink}>Profil</Link>
-          <Link to="/alur" style={styles.footerLink}>Alur</Link>
-          <Link to="/hubungi" style={styles.footerLink}>Hubungi Kami</Link>
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            <li>
+              <Link to="/Dashboard" style={styles.navLink}>
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link to="/Setoran" style={styles.navLink}>
+                Setoran
+              </Link>
+            </li>
+            <li>
+              <Link to="/Transaksi" style={{ ...styles.navLink, ...styles.activeLink }}>
+                Transaksi
+              </Link>
+            </li>
+            <li>
+              <Link to="/RiwayatTransaksi" style={styles.navLink}>
+                Riwayat Transaksi
+              </Link>
+            </li>
+            <li>
+              <Link to="/Tabungan" style={styles.navLink}>
+                Tabungan
+              </Link>
+            </li>
+            <li>
+              <Link to="/Berteman" style={styles.navLink}>
+                Teman
+              </Link>
+            </li>
+            <li>
+              <Link to="/Postingan" style={styles.navLink}>
+                Postingan
+              </Link>
+            </li>
+          </ul>
         </nav>
-        <p>&copy; 2024 GoSampah. All Rights Reserved</p>
-      </footer>
+      </aside>
+
+      {/* Main Content */}
+      <main style={styles.mainContent}>
+        <div style={styles.card}>
+          <h2 style={{ textAlign: "center", color: "#2f8d46" }}>Detail Transaksi</h2>
+          <p style={styles.label}>
+            <strong>Nama:</strong> Tyka Nurul Indi
+          </p>
+          <p style={styles.label}>
+            <strong>Lokasi:</strong> Lokasi 1 (Jl Gunung Muria No. 07 desa Jatirejo)
+          </p>
+          <p style={styles.label}>
+            <strong>Jenis Sampah:</strong> Sampah Kardus
+          </p>
+          <p style={styles.label}>
+            <strong>Berat Sampah:</strong> 10 Kg
+          </p>
+          <p style={styles.label}>
+            <strong>Status:</strong>{" "}
+            <button style={styles.button}>Proses</button>
+          </p>
+        </div>
+      </main>
+
     </div>
   );
 };

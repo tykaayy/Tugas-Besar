@@ -113,7 +113,7 @@ const Login = () => {
 
         {/* Link untuk registrasi */}
         <p style={styles.registerLink}>
-          Belum memiliki akun? <a href="/register" style={styles.link}>Klik di sini</a>
+          Belum memiliki akun? <a href="/Pelanggan" style={styles.link}>Klik di sini</a>
         </p>
       </div>
     </div>

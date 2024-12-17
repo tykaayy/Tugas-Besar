@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Gunakan jika navigasi antar halaman
+import profile from '../assets/Group 8834.png';
 
 const PostinganPage = () => {
   const styles = {
@@ -8,13 +9,13 @@ const PostinganPage = () => {
       padding: 0,
       fontFamily: "Arial, sans-serif",
       color: "#333",
-      backgroundColor: "#ffff",
+      backgroundColor: "#ffffff",
     },
     header: {
       backgroundColor: "#238B45",
       color: "white",
       textAlign: "center",
-      padding: "10px 20px",
+      padding: "20px",
     },
     logo: {
       fontSize: "24px",
@@ -55,6 +56,7 @@ const PostinganPage = () => {
       color: "#333",
       fontSize: "1em",
       fontWeight: "bold",
+      transition: "color 0.3s", // Menambahkan transisi untuk hover
     },
     linkHover: {
       color: "#238B45",
@@ -96,7 +98,7 @@ const PostinganPage = () => {
       textDecoration: "none",
       cursor: "pointer",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
-      transition: "transform 0.2s",
+      transition: "transform 0.2s", // Menambahkan transisi untuk hover
     },
     addButtonHover: {
       transform: "scale(1.1)",
@@ -122,10 +124,6 @@ const PostinganPage = () => {
 
   return (
     <div style={styles.body}>
-      {/* Header */}
-      <header style={styles.header}>
-        <h1 style={styles.logo}>GoSampah</h1>
-      </header>
 
       {/* Container */}
       <div style={styles.container}>
@@ -133,49 +131,49 @@ const PostinganPage = () => {
         <aside style={styles.sidebar}>
           <div style={styles.profile}>
             <img
-              src="Ellipse 16.png"
+              src={profile}
               alt="Profile Picture"
-              style={styles.profileImage}
+              style={styles.profile}
             />
             <p>Tyka Nurul Indi</p>
             <a href="#" style={styles.link}>
-              Ubah profil
+              Lihat profil
             </a>
           </div>
           <nav>
             <ul style={styles.menu}>
               <li style={styles.menuItem}>
-                <Link to="/dashboard" style={styles.link}>
+                <Link to="/Dashboard" style={styles.link}>
                   Dasbord
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/setoran" style={styles.link}>
+                <Link to="/Setoran" style={styles.link}>
                   Setoran
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/transaksi" style={styles.link}>
+                <Link to="/Transaksi" style={styles.link}>
                   Transaksi
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/riwayattransaksi" style={styles.link}>
+                <Link to="/RiwayatTransaksi" style={styles.link}>
                   Riwayat Transaksi
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/tabungan" style={styles.link}>
+                <Link to="/Tabungan" style={styles.link}>
                   Tabungan
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/bereman" style={styles.link}>
+                <Link to="/Berteman" style={styles.link}>
                   Teman
                 </Link>
               </li>
               <li style={styles.menuItem}>
-                <Link to="/postingan" style={styles.link}>
+                <Link to="/Postingan" style={styles.link}>
                   Postingan
                 </Link>
               </li>
@@ -196,24 +194,6 @@ const PostinganPage = () => {
         </main>
       </div>
 
-      {/* Footer */}
-      <footer style={styles.footer}>
-        <nav>
-          <Link to="/" style={styles.footerLink}>
-            Home
-          </Link>
-          <Link to="/profil" style={styles.footerLink}>
-            Profil
-          </Link>
-          <Link to="/alur" style={styles.footerLink}>
-            Alur
-          </Link>
-          <Link to="/hubungi" style={styles.footerLink}>
-            Hubungi Kami
-          </Link>
-        </nav>
-        <p>&copy; 2024 GoSampah. All Rights Reserved</p>
-      </footer>
     </div>
   );
 };
